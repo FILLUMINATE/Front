@@ -1,12 +1,13 @@
-import Layout from "./layout/Layout";
+import { Route, Routes } from "react-router-dom";
+import Main from "./page/Main";
+import About from "./page/About";
 
 function App() {
   return (
-    <Layout>
-      <div>
-        메인 내용
-      </div>
-    </Layout>
+    <Routes>
+        <Route index element={<Main />} />
+        <Route path='/about' element={<About />} />
+    </Routes>
   );
 }
 
