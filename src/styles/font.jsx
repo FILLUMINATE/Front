@@ -6,7 +6,7 @@ const fontGenerator = (weight, size) => css`
   font-size: ${size}rem;
 `;
 
-const font = {
+export const font = {
   H1: fontGenerator(400, 2.25),
   H1Bold: fontGenerator(700, 2.25),
   H2: fontGenerator(400, 1.75),

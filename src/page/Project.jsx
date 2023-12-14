@@ -1,6 +1,11 @@
 import Layout from "../layout/Layout";
+import Text from "../components/common/Text";
 
-function About() {
-  return <Layout>소개</Layout>;
+function Project() {
+  return (
+    <Layout>
+      프로젝트
+    </Layout>
+  );
 }
-export default About;
+export default Project;
