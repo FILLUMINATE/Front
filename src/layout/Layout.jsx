@@ -8,7 +8,7 @@ function Layout({ children }) {
 
   return (
     <div>
-      <GlobalStyle />
+      <GlobalStyle /> 
       <Header />
       <Body MinHeight={bodyMinHeight}>
         {children}
