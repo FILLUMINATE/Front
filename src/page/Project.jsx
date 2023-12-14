@@ -2,7 +2,8 @@ import Layout from "../layout/Layout";
 import Text from "../components/common/Text";
 import styled from "styled-components";
 import Item from "../components/common/Item";
-import { typicalProjectData } from "../mocks/projectData";
+import SmallItem from "../components/Projects/SmallItem";
+import { typicalProjectData, projectData } from "../mocks/projectData";
 
 function Project() {
   return (
@@ -25,6 +26,17 @@ function Project() {
           ))}
           
         </TypicalProjects>
+
+        <ProjectItems>
+          <Text $fontType={"H2Bold"}>전체 프로젝트</Text>
+            {projectData.map((item, index) => (
+              <SmallItem
+                itemName={item.itemName}
+                subTitle={item.subTitle}
+                anotherInfo={item.anotherInfo}
+              />
+            ))}
+        </ProjectItems>
       </Container>
     </Layout>
   );
@@ -36,4 +48,9 @@ const Container = styled.div`
 `
 const TypicalProjects = styled.div`
   margin-top: 2rem;
+`
+const ProjectItems = styled.div`
+  display: grid;
+  row-gap: 1.8rem;
+  column-gap: 2.5rem;
 `
