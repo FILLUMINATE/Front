@@ -165,4 +165,5 @@ const RightFeedBox = styled.div`
   width: 50rem;
   height: 19rem;
   background-color: red;
+  border-radius: 1.25rem;
 `;
