@@ -2,7 +2,7 @@ import Layout from "../layout/Layout";
 import Text from "../components/common/Text";
 import styled from "styled-components";
 import Item from "../components/common/Item";
-import { projectData } from "../mocks/data";
+import { typicalProjectData } from "../mocks/projectData";
 
 function Project() {
   return (
@@ -11,7 +11,8 @@ function Project() {
         <Text $fontType={"H1Bold"}>프로젝트</Text>
         <TypicalProjects>
           <Text $fontType={"H2Bold"}>대표 프로젝트</Text>
-          {projectData.map((item, index) => (
+
+          {typicalProjectData.map((item, index) => (
             <Item
               key={index}
               imgUrl={item.imgUrl}
@@ -22,6 +23,7 @@ function Project() {
               isProject={item.isProject}
             />
           ))}
+          
         </TypicalProjects>
       </Container>
     </Layout>
