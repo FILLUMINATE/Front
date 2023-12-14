@@ -63,17 +63,18 @@ function Main() {
                   width: "100%",
                 }}
               ></div>
-              <div style={{ width: "100%" }}>
-                <Text $fontType={"Body1"} style={{ fontStyle: "nomal" }}>
-                  dkdk{data}
-                </Text>
-              </div>
+              <Text
+                $fontType={"Body1"}
+                style={{ fontStyle: "nomal", wordWrap: "break-word" }}
+              >
+                dkdk{data}
+              </Text>
             </LeftFeedBox>
             <RightFeedBox>
               <img
-                src="images/Icon/Arrow-up.svg"
+                src="/images/Icon/Arrow-up.svg"
                 alt="피드"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </RightFeedBox>
           </FeedBox>

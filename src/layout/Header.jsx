@@ -6,7 +6,7 @@ function Header() {
     <>
       <HeaderBox>
         <NavBar>
-          <Logo src="images/Logo.svg" alt="로고" />
+          <Logo src="/images/Logo.svg" alt="로고" />
           <StyledNavLink to="/" activeClassName="active">
             HOME
           </StyledNavLink>

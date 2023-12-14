@@ -5,7 +5,7 @@ import font from "../styles/font";
 function Footer() {
   return (
     <FooterBox>
-      <LogoBox src="images/Logo.svg" alt="로고" />
+      <LogoBox src="/images/Logo.svg" alt="로고" />
       <FooterInfoBox>
         <H1Bold>EEDA</H1Bold>
         <SubHeading>

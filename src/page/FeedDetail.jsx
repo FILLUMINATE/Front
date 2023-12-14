@@ -1,7 +1,6 @@
 import Layout from "../layout/Layout";
 import styled from "styled-components";
 import Text from "../components/common/Text";
-import color from "../styles/color";
 import { useParams } from "react-router-dom";
 
 function FeedDetail() {
@@ -19,18 +18,22 @@ function FeedDetail() {
             <LeftFeedBox>
               <Text $fontType={"H2"}>이번 주 마중물 수업</Text>
               <Text $fontType={""}>2023. 10. 07. (토)</Text>
-
-              <div style={{ width: "100%" }}>
-                <Text $fontType={"Body1"} style={{ fontStyle: "nomal" }}>
-                  dkdk
-                </Text>
-              </div>
+              <Text
+                $fontType={"Body1"}
+                style={{
+                  fontStyle: "nomal",
+                  wordWrap: "break-word",
+                }}
+              >
+                dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk
+              </Text>
             </LeftFeedBox>
+
             <RightFeedBox>
               <img
-                src="images/Icon/Arrow-up.svg"
+                src="/images/Icon/Arrow-up.svg"
                 alt="피드"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </RightFeedBox>
           </FeedBox>
@@ -47,7 +50,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10rem 0 15rem;
+  margin: 15rem 0;
 `;
 
 const FeedContainer = styled.div`
@@ -63,28 +66,18 @@ const FeedContainer = styled.div`
 const FeedBox = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  gap: 2rem;
+  gap: 4rem;
 `;
 
 const LeftFeedBox = styled.div`
-  width: 100%;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `;
 
-const TopFeedBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  margin: 0 0 1.5rem;
-`;
-
 const RightFeedBox = styled.div`
+  max-width: 50%;
   width: 50rem;
   height: 19rem;
   background-color: red;
