@@ -13,6 +13,7 @@ const color = {
   gray800: "#303030",
   gray900: "#131313",
 
+  hashTag: "#3E7BC6",
   lightGreen: "#CFDDC3",
   green: "#B7CDA5",
   linearGreen: "linear-gradient(180deg, #87AB69 0%, #CFDDC3 100%))",

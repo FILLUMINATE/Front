@@ -14,6 +14,7 @@ export const font = {
   H3: fontGenerator(400, 1.375),
   H3Bold: fontGenerator(700, 1.375),
   SubHead: fontGenerator(400, 1.125),
+  SubHeadBold: fontGenerator(700, 1.125),
   Body1: fontGenerator(400, 1),
   Body2: fontGenerator(400, 0.875),
   CaptionBold: fontGenerator(700, 0.75),
