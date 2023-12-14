@@ -5,8 +5,8 @@ import About from "./page/About";
 function App() {
   return (
     <Routes>
-        <Route index element={<Main />} />
-        <Route path='/about' element={<About />} />
+      <Route index element={<Main />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }

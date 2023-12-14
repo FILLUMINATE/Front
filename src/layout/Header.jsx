@@ -32,6 +32,9 @@ function Header() {
 export default Header;
 
 const HeaderBox = styled.div`
+  position: fixed;
+  top: 0;
+
   width: 100%;
   height: 4.375rem;
 

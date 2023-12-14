@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { font } from "ui/styles";
+import { font } from "../../../styles/font";
 
 function Text({ children, color, $fontType, tag, style }) {
   return (

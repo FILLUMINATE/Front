@@ -4,12 +4,12 @@ import GlobalStyle from "../styles/GlobalStyle";
 
 function Layout({ children }) {
   return (
-    <div>
+    <>
       <GlobalStyle />
       <Header />
       {children}
       <Footer />
-    </div>
+    </>
   );
 }
 

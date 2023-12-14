@@ -24,7 +24,6 @@ function Footer() {
 export default Footer;
 
 const FooterBox = styled.div`
-  position: fixed;
   bottom: 0;
 
   width: 100%;
