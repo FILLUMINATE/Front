@@ -25,7 +25,6 @@ export default Footer;
 
 const FooterBox = styled.div`
   bottom: 0;
-
   width: 100%;
   height: 22.5rem;
   background-color: ${color.gray50};
