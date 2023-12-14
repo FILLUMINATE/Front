@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 const fontGenerator = (weight, size) => css`
-  font-family: "SOYOMapleBoldTTF";
+  font-family: "SOYOMapleRegular";
   font-weight: ${weight};
   font-size: ${size}rem;
 `;
