@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { font } from "../../../styles/font";
 
-function Text({ children, color, $fontType, tag, style }) {
+function Text({ children, $fontType, tag, style }) {
   return (
-    <StyledText $fontType={$fontType} as={tag} style={{ color, ...style }}>
+    <StyledText $fontType={$fontType} as={tag} style={{ ...style }}>
       {children}
     </StyledText>
   );

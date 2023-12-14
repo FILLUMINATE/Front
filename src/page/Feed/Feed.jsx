@@ -1,8 +1,8 @@
-import Layout from "../layout/Layout";
 import styled from "styled-components";
-import Text from "../components/common/Text";
-import color from "../styles/color";
+import Text from "../../components/common/Text";
+import color from "../../styles/color";
 import { Link } from "react-router-dom";
+import Layout from "../../layout/Layout";
 
 function Feed() {
   const gottenData = [1, 2, 3, 4, 5] || [];

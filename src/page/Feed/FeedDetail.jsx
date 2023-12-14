@@ -1,7 +1,7 @@
-import Layout from "../layout/Layout";
 import styled from "styled-components";
-import Text from "../components/common/Text";
+import Text from "../../components/common/Text";
 import { useParams } from "react-router-dom";
+import Layout from "../../layout/Layout";
 
 function FeedDetail() {
   const { id } = useParams();
