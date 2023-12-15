@@ -6,7 +6,7 @@ function Header() {
     <>
       <HeaderBox>
         <NavBar>
-          <Logo src="images/Logo.svg" alt="로고" />
+          <Logo src="/images/Logo.svg" alt="로고" />
           <StyledNavLink to="/" activeClassName="active">
             HOME
           </StyledNavLink>
@@ -32,6 +32,9 @@ function Header() {
 export default Header;
 
 const HeaderBox = styled.div`
+  position: fixed;
+  top: 0;
+
   width: 100%;
   height: 4.375rem;
 

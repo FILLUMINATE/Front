@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'SOYOMapleRegular';
     }
+    *{
+        margin: 0;
+        border: 0;
+        padding: 0;
+    }
 `;
 
 export default GlobalStyle;
