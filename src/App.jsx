@@ -4,6 +4,8 @@ import About from "./page/About";
 import Feed from "./page/Feed/Feed";
 import FeedDetail from "./page/Feed/FeedDetail";
 import FeedWrite from "./page/Feed/FeedWrite";
+import Categories from "./page/Categories";
+import Project from "./page/Project";
 
 function App() {
   return (
@@ -13,6 +15,10 @@ function App() {
       <Route path="/feed" element={<Feed />} />
       <Route path="/feed/write" element={<FeedWrite />} />
       <Route path="/feed/:id" element={<FeedDetail />} />
+      <Route index element={<Main />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/project" element={<Project />} />
     </Routes>
   );
 }
