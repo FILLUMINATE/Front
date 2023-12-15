@@ -6,18 +6,24 @@ import FeedDetail from "./page/Feed/FeedDetail";
 import FeedWrite from "./page/Feed/FeedWrite";
 import Categories from "./page/Categories";
 import Project from "./page/Project";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
 
 function App() {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <Routes>
-      <Route index element={<Main />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/feed" element={<Feed />} />
-      <Route path="/feed/write" element={<FeedWrite />} />
-      <Route path="/feed/:id" element={<FeedDetail />} />
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/project" element={<Project />} />
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        <Route index element={<Main />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/feed/write" element={<FeedWrite />} />
+        <Route path="/feed/:id" element={<FeedDetail />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/project" element={<Project />} />
+      </Routes>
+    </QueryClientProvider>
   );
 }
 
