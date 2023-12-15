@@ -2,6 +2,8 @@ import Layout from "../layout/Layout";
 import styled from "styled-components";
 import Text from "../components/common/Text";
 import Title from "../components/img/title.png";
+import Item from "../components/common/Item";
+import { typicalCategoriesData } from "../mocks/Categories";
 
 function Categories() {
   return (
@@ -10,6 +12,7 @@ function Categories() {
         <Process>
           <Text $fontType={"H2Bold"}>작업과정</Text>
           <img src={Title} alt="이미지" />
+
           <p>
             최근 <b>기후변화</b>와 <b>기후위기</b>에 대한 관심과 더불어
             일반시민들의 사회적 참여가 활발합니다. <br />
@@ -22,6 +25,18 @@ function Categories() {
             EEDA 대표 안혜정
           </p>
         </Process>
+        {typicalCategoriesData.map((item, index) => (
+          <Item
+            key={index}
+            imgUrl={item.imgUrl}
+            itemName={item.itemName}
+            subTitle={item.subTitle}
+            hashTag={item.hashTag}
+            anotherInfo={item.anotherInfo}
+            isProject={item.isProject}
+          />
+        ))}
+
         <BoxContainer></BoxContainer>
       </Container>
     </Layout>
