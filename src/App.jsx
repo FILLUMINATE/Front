@@ -15,8 +15,6 @@ function App() {
       <Route path="/feed" element={<Feed />} />
       <Route path="/feed/write" element={<FeedWrite />} />
       <Route path="/feed/:id" element={<FeedDetail />} />
-      <Route index element={<Main />} />
-      <Route path="/about" element={<About />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/project" element={<Project />} />
     </Routes>

@@ -6,16 +6,15 @@ import Layout from "../../layout/Layout";
 import FeedItem from "../../components/feed/FeedItem";
 
 function Feed() {
-  const gottenData = [1, 2, 3, 4, 5] || [];
+  const gottenData = [1, 2, 3, 4, 5];
 
   return (
     <Layout>
       <Container>
-        <Text $fontType={"H1"}>EEDA의 피드</Text>
+        <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
         <FeedContainer>
-          {/* 반복 */}
           {gottenData.map((data) => (
-            <StyledLink to={data.id}>
+            <StyledLink to={`${data}`}>
               <FeedItem {...data} />
             </StyledLink>
           ))}

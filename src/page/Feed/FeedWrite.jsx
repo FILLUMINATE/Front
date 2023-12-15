@@ -98,15 +98,3 @@ const ButtonBox = styled.div`
   flex-direction: row;
   gap: 1.1rem;
 `;
-
-// const StyledButton = styled.button`
-//   padding: 1.3rem 3rem;
-//   border: 1px solid ${color.gray200};
-//   border-radius: 1.25rem;
-//   background-color: white;
-//   ${font.SubHead};
-//   &:hover,
-//   &:focus {
-//     transition: 0.3s ease;
-//   }
-// `;

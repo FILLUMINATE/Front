@@ -47,15 +47,17 @@ function Main() {
                 gap: "5px",
               }}
             >
-              <Text $fontType={"SubHead"}>더보기</Text>
+              <Text $fontType={"SubHeadBold"}>더보기</Text>
               <img src="images/Icon/Arrow-up.svg" alt="피드" />
             </StyledLink>
           </TopFeedBox>
           <FeedBox>
             <LeftFeedBox>
               <TopFeedBox style={{ padding: "0", margin: "0", width: "100%" }}>
-                <Text $fontType={"SubHead"}>이번 주 마중물 수업</Text>
-                <Text $fontType={""}>2023. 10. 07. (토)</Text>
+                <Text $fontType={"SubHeadBold"}>이번 주 마중물 수업</Text>
+                <Text $fontType={"SubHeadBold"} style={{ fontSize: "1rem" }}>
+                  2023. 10. 07. (토)
+                </Text>
               </TopFeedBox>
               <div
                 style={{
