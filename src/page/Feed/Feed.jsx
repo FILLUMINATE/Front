@@ -3,6 +3,7 @@ import Text from "../../components/common/Text";
 import color from "../../styles/color";
 import { Link } from "react-router-dom";
 import Layout from "../../layout/Layout";
+import FeedItem from "../../components/feed/FeedItem";
 
 function Feed() {
   const gottenData = [1, 2, 3, 4, 5] || [];
@@ -13,14 +14,11 @@ function Feed() {
         <Text $fontType={"H1"}>EEDA의 피드</Text>
         <FeedContainer>
           {/* 반복 */}
-          <StyledLink to={`1`}>
-            <FeedBox>
-              <Text $fontType={"H3"}>이번 주 마중물 수업</Text>
-              <Text $fontType={"SubHead"} style={{ color: `${color.gray400}` }}>
-                2023. 10. 07. (토)
-              </Text>
-            </FeedBox>
-          </StyledLink>
+          {gottenData.map((data) => (
+            <StyledLink to={data.id}>
+              <FeedItem {...data} />
+            </StyledLink>
+          ))}
         </FeedContainer>
       </Container>
     </Layout>
@@ -45,17 +43,6 @@ const FeedContainer = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-`;
-
-const FeedBox = styled.div`
-  width: 100%;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 1.25rem;
-  box-sizing: border-box;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 `;
 
 const StyledLink = styled(Link)`
