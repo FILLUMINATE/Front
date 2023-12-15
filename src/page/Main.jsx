@@ -104,7 +104,7 @@ const Container = styled.div`
 
 const VideoBox = styled.div`
   width: 100%;
-  height: 57rem;
+  height: calc(57rem - 4.375rem);
   display: flex;
   justify-content: center;
   align-items: center;
