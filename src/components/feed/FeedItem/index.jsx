@@ -15,7 +15,7 @@ export default function FeedItem({ title, date }) {
 
 const Box = styled.div`
   width: 100%;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid ${color.gray200};
   border-radius: 1.25rem;
   box-sizing: border-box;
   padding: 2rem;
