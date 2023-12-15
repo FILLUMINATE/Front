@@ -7,7 +7,6 @@ import { useQuery } from "react-query";
 import { getFeeds } from "../../api/feed/api";
 
 function Feed() {
-  const gottenData = [1, 2, 3, 4, 5];
   const { data: feeds } = useQuery({
     queryKey: ["feeds"],
     queryFn: () => getFeeds(),
@@ -18,11 +17,12 @@ function Feed() {
       <Container>
         <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
         <FeedContainer>
-          {gottenData.map((data, idx) => (
-            <StyledLink to={`${data}`} key={idx}>
-              <FeedItem {...data} />
-            </StyledLink>
-          ))}
+          {feeds &&
+            feeds.map((feed, idx) => (
+              <StyledLink to={`/feed/${feed.id}`} key={idx}>
+                <FeedItem {...feed} />
+              </StyledLink>
+            ))}
         </FeedContainer>
       </Container>
     </Layout>

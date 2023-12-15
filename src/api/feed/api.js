@@ -7,8 +7,7 @@ export const createFeed = async (FeedData) => {
 };
 
 export const getFeeds = async () => {
-  const { data } = await instance.get(`/api/board/`);
-  console.log(data);
+  const { data } = await instance.get(`/api/board/notice`);
   return data;
 };
 
