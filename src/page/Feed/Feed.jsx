@@ -1,23 +1,28 @@
 import styled from "styled-components";
 import Text from "../../components/common/Text";
-import color from "../../styles/color";
 import { Link } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import FeedItem from "../../components/feed/FeedItem";
+import { useQuery } from "react-query";
+import { getFeeds } from "../../api/feed/api";
 
 function Feed() {
-  const gottenData = [1, 2, 3, 4, 5];
+  const { data: feeds } = useQuery({
+    queryKey: ["feeds"],
+    queryFn: () => getFeeds(),
+  });
 
   return (
     <Layout>
       <Container>
         <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
         <FeedContainer>
-          {gottenData.map((data) => (
-            <StyledLink to={`${data}`}>
-              <FeedItem {...data} />
-            </StyledLink>
-          ))}
+          {feeds &&
+            feeds.map((feed, idx) => (
+              <StyledLink to={`/feed/${feed.id}`} key={idx}>
+                <FeedItem {...feed} />
+              </StyledLink>
+            ))}
         </FeedContainer>
       </Container>
     </Layout>

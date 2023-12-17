@@ -10,7 +10,7 @@ function Layout({ children }) {
     <>
       <GlobalStyle />
       <Header />
-      <Body MinHeight={bodyMinHeight}>{children}</Body>
+      <Body $MinHeight={bodyMinHeight}>{children}</Body>
       <Footer />
     </>
   );
@@ -20,5 +20,5 @@ export default Layout;
 
 const Body = styled.div`
   top: 4.375rem;
-  min-height: ${(props) => props.MinHeight}px;
+  min-height: ${(props) => props.$MinHeight}px;
 `;

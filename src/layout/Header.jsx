@@ -7,16 +7,16 @@ function Header() {
       <HeaderBox>
         <NavBar>
           <Logo src="/images/Logo.svg" alt="로고" />
-          <StyledNavLink to="/" activeClassName="active">
+          <StyledNavLink to="/" $activeClassName="active">
             HOME
           </StyledNavLink>
-          <StyledNavLink to="/about" activeClassName="active">
+          <StyledNavLink to="/about" $activeClassName="active">
             ABOUT
           </StyledNavLink>
-          <StyledNavLink to="/categories" activeClassName="active">
+          <StyledNavLink to="/categories" $activeClassName="active">
             CATEGORIES
           </StyledNavLink>
-          <StyledNavLink to="/project" activeClassName="active">
+          <StyledNavLink to="/project" $activeClassName="active">
             PROJECT
           </StyledNavLink>
         </NavBar>
