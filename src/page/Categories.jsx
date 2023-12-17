@@ -4,6 +4,7 @@ import Text from "../components/common/Text";
 import Title from "../components/img/title.png";
 import Item from "../components/common/Item";
 import { typicalCategoriesData } from "../mocks/Categories";
+import { Link } from "react-router-dom";
 
 function Categories() {
   return (
@@ -25,19 +26,20 @@ function Categories() {
             EEDA 대표 안혜정
           </p>
         </Process>
+        <Text $fontType={"H2Bold"}>대표 작품</Text>
         {typicalCategoriesData.map((item, index) => (
-          <Item
-            key={index}
-            imgUrl={item.imgUrl}
-            itemName={item.itemName}
-            subTitle={item.subTitle}
-            hashTag={item.hashTag}
-            anotherInfo={item.anotherInfo}
-            isProject={item.isProject}
-          />
+          <StyledLink to={`/category/${index}`}>
+            <Item
+              key={index}
+              imgUrl={item.imgUrl}
+              itemName={item.itemName}
+              subTitle={item.subTitle}
+              hashTag={item.hashTag}
+              anotherInfo={item.anotherInfo}
+              isProject={item.isProject}
+            />
+          </StyledLink>
         ))}
-
-        <BoxContainer></BoxContainer>
       </Container>
     </Layout>
   );
@@ -54,7 +56,8 @@ const Process = styled.div`
   gap: 35px;
 `;
 
-const BoxContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+const StyledLink = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+  color: black;
 `;
