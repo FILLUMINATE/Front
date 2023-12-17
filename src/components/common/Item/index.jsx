@@ -29,7 +29,6 @@ function Item({imgUrl, itemName, subTitle, hashTag, anotherInfo, isProject}) {
 export default Item;
 
 const Container = styled.div`
-  width: 100%;
   padding: 1.8rem 2.7rem;
 
   display: flex;
