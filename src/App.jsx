@@ -10,24 +10,27 @@ import ProjectDetail from "./page/Projects/ProjectDetail";
 import ProjectWrite from "./page/Projects/ProjectWrite";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
+import { UserProvider } from "../src/context/UserContext";
 
 function App() {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Routes>
-        <Route index element={<Main />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/feed/write" element={<FeedWrite />} />
-        <Route path="/feed/:id" element={<FeedDetail />} />
-        <Route path='/categories' element={<Categories />} />
-        <Route path='/project' element={<Project />} />
-        <Route path='/project/:id' element={<ProjectDetail />} />
-        <Route path='/project/write' element={<ProjectWrite />} />
-      </Routes>
-    </QueryClientProvider>
+    <UserProvider>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route index element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/feed/write" element={<FeedWrite />} />
+          <Route path="/feed/:id" element={<FeedDetail />} />
+          <Route path='/categories' element={<Categories />} />
+          <Route path='/project' element={<Project />} />
+          <Route path='/project/:id' element={<ProjectDetail />} />
+          <Route path='/project/write' element={<ProjectWrite />} />
+        </Routes>
+      </QueryClientProvider>
+    </UserProvider>
   );
 }
 

@@ -5,7 +5,7 @@ import color from "../../../styles/color";
 function Button({
   $fontType,
   value,
-  onChange,
+  onClick,
   placeholder,
   fontType,
   style,
@@ -15,7 +15,7 @@ function Button({
     <StyledButton
       $fontType={$fontType}
       value={value}
-      onChange={onChange}
+      onClick={onClick}
       placeholder={placeholder}
       fontType={fontType}
       style={style}
@@ -35,6 +35,8 @@ const StyledButton = styled.button`
   ${font.SubHead};
   &:hover,
   &:focus {
+    cursor: pointer;
     transition: 0.3s ease;
+    background-color: ${color.gray200};
   }
 `;

@@ -1,7 +1,17 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import LoginModal from "../components/Header/LoginModal";
+import { UserContext } from "../context/UserContext";
 
 function Header() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       <HeaderBox>
@@ -20,10 +30,19 @@ function Header() {
             PROJECT
           </StyledNavLink>
         </NavBar>
-        <StyledIconBox
-          data="./images/Icon/PersonIcon.svg"
-          type="image/svg+xml"
-        />
+
+        {!isLoggedIn &&
+          <LoginIcon onClick={openModal}>
+            <StyledIcon 
+              src={"images/Icon/PersonIcon.svg"}
+            />
+          </LoginIcon>
+        }
+
+        {isModalOpen && (
+          <LoginModal isOpen={isModalOpen} onClose={closeModal} />
+        )}
+
       </HeaderBox>
     </>
   );
@@ -84,3 +103,14 @@ const StyledIconBox = styled.object`
     cursor: pointer;
   }
 `;
+
+const LoginIcon = styled(Link)`
+  
+`
+
+const StyledIcon = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  margin-right: 4rem;
+`
