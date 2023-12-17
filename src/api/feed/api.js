@@ -11,9 +11,14 @@ export const getFeeds = async () => {
   return data;
 };
 
+export const getFeedById = async (id) => {
+  const { data } = await instance.get(`/api/board/:${id}`);
+  return data;
+};
+
 // 백엔드 미구현
 export const deleteFeed = async (FeedId) => {
-  const { data } = await instance.delete(`/api/board/${FeedId}`);
+  const { data } = await instance.delete(`/api/board/:${FeedId}`);
   console.log(data);
   return data;
 };

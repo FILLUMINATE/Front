@@ -4,19 +4,23 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import LoginModal from "../components/Header/LoginModal";
 import { UserContext } from "../context/UserContext";
+import Text from "../components/common/Text";
 
 function Header() {
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
 
   return (
     <>
       <HeaderBox>
         <NavBar>
-          <Logo src="/images/Logo.svg" alt="로고" />
+          <Link to='/'>
+            <Logo src="/images/Logo.svg" alt="로고" />
+          </Link>
           <StyledNavLink to="/" $activeClassName="active">
             HOME
           </StyledNavLink>
@@ -32,11 +36,12 @@ function Header() {
         </NavBar>
 
         {!isLoggedIn &&
-          <LoginIcon onClick={openModal}>
+          (<LoginIcon onClick={openModal}>
             <StyledIcon 
               src={"images/Icon/PersonIcon.svg"}
             />
           </LoginIcon>
+          )
         }
 
         {isModalOpen && (
@@ -80,6 +85,7 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1.125rem;
   color: #d9d9d9;
   text-decoration: none;
+  font-weight: 700;
 
   &:hover {
     color: #000;
@@ -92,18 +98,6 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const StyledIconBox = styled.object`
-  width: 30px;
-  height: 30px;
-  color: #d9d9d9;
-  margin: 0 2rem;
-  &:hover {
-    filter: invert(100%);
-    transition: 0.3s ease;
-    cursor: pointer;
-  }
-`;
-
 const LoginIcon = styled(Link)`
   
 `
@@ -113,4 +107,7 @@ const StyledIcon = styled.img`
   height: 1.5rem;
   cursor: pointer;
   margin-right: 4rem;
+`
+const AdminMenuIcon = styled.div`
+  
 `

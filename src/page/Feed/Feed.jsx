@@ -5,8 +5,14 @@ import Layout from "../../layout/Layout";
 import FeedItem from "../../components/feed/FeedItem";
 import { useQuery } from "react-query";
 import { getFeeds } from "../../api/feed/api";
+import Button from "../../components/common/Button";
+import { useContext } from 'react';
+import { UserContext } from "../../context/UserContext";
+
 
 function Feed() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+
   const { data: feeds } = useQuery({
     queryKey: ["feeds"],
     queryFn: () => getFeeds(),
@@ -15,7 +21,14 @@ function Feed() {
   return (
     <Layout>
       <Container>
-        <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
+        <Row>
+          <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
+          {isLoggedIn && 
+            <Link to={'/feed/write'}>
+              <Button>피드 작성</Button>
+            </Link>
+          }
+        </Row>
         <FeedContainer>
           {feeds &&
             feeds.map((feed, idx) => (
@@ -54,3 +67,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+`

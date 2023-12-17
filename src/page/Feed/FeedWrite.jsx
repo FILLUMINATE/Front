@@ -22,7 +22,7 @@ function FeedWrite() {
     <Layout>
       <Container>
         <FeedContainer>
-          <Text $fontType={"H1"} style={{ width: "100%" }}>
+          <Text $fontType={"H1Bold"} style={{ width: "100%" }}>
             EEDA의 피드 작성
           </Text>
           <Input placeholder={"제목"} style={{ width: "100%" }} />

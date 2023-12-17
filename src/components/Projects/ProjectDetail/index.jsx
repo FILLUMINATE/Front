@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Text from "../../components/common/Text";
 import { useParams } from "react-router-dom";
-import Layout from "../../layout/Layout";
+import Layout from "../../../layout/Layout";
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -50,7 +50,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 15rem 0;
+  margin: 6rem 0;
 `;
 
 const FeedContainer = styled.div`
