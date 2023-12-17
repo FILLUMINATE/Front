@@ -2,7 +2,7 @@ import Text from "../../common/Text/index";
 import styled from "styled-components";
 import color from "../../../styles/color";
 
-function Item({ itemName, subTitle, anotherInfo }) {
+function SmallItem({ itemName, subTitle, anotherInfo }) {
   return (
     <Container>
         <ItemInfoBox>
@@ -16,11 +16,11 @@ function Item({ itemName, subTitle, anotherInfo }) {
     </Container>
   );
 }
-export default Item;
+export default SmallItem;
 
 const Container = styled.div`
   padding: 1.8rem 2.7rem;
-  width: 40%;
+  width: calc('100% - 1.8rem');
 
   display: flex;
   flex-direction: column;

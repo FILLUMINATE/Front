@@ -7,12 +7,12 @@ function Layout({ children }) {
   const bodyMinHeight = window.innerHeight - 70;
 
   return (
-    <div>
+    <>
       <GlobalStyle />
       <Header />
       <Body MinHeight={bodyMinHeight}>{children}</Body>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -5,7 +5,7 @@ import font from "../styles/font";
 function Footer() {
   return (
     <FooterBox>
-      <LogoBox src="images/Logo.svg" alt="로고" />
+      <LogoBox src="/images/Logo.svg" alt="로고" />
       <FooterInfoBox>
         <H1Bold>EEDA</H1Bold>
         <SubHeading>
@@ -25,7 +25,6 @@ export default Footer;
 
 const FooterBox = styled.div`
   bottom: 0;
-
   width: 100%;
   height: 22.5rem;
   background-color: ${color.gray50};
