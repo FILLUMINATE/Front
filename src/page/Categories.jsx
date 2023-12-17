@@ -11,7 +11,7 @@ function Categories() {
     <Layout>
       <Container>
         <Process>
-          <Text $fontType={"H2Bold"}>작업과정</Text>
+          <Text $fontType={"H2Bold"}>『사물의 쓸모』 전시</Text>
           <img src={Title} alt="이미지" />
 
           <p>
