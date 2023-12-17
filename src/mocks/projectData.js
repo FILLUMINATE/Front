@@ -1,26 +1,26 @@
 export const typicalProjectData = [
-        {
-            imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
-            itemName: "생활예술, 쓰레기로 읽고 쓰다",
-            subTitle: "2022. 6 ~ 2022. 11",
-            hashTag: "#생활예술 #2022시민온라인교육 #쓰레기자원맵",
-            anotherInfo: "한국문화예술진흥원",
-            isProject: true,
-        },
-        {
-            imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
-            itemName: "슬기로운 코로나 사피엔스 탐험대",
-            subTitle: "2021.8 ~ 2021.12.",
-            anotherInfo: "한국문화예술진흥원",
-            isProject: true,
-        },
-        {
-            imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
-            itemName: "아동교육을 위한 ICT기반 아동문학·도서 발간 역량강화",
-            subTitle: "2020.9 ~ 2020.12",
-            anotherInfo: "EDCN(한국국제교육개발협력원), 문화체육관광부, 한국국제문화교류진흥원",
-            isProject: true,
-        },
+    {
+        imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
+        itemName: "생활예술, 쓰레기로 읽고 쓰다",
+        subTitle: "2022. 6 ~ 2022. 11",
+        hashTag: "#생활예술 #2022시민온라인교육 #쓰레기자원맵",
+        anotherInfo: "한국문화예술진흥원",
+        isProject: true,
+    },
+    {
+        imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
+        itemName: "슬기로운 코로나 사피엔스 탐험대",
+        subTitle: "2021.8 ~ 2021.12.",
+        anotherInfo: "한국문화예술진흥원",
+        isProject: true,
+    },
+    {
+        imgUrl: "/images/ItemImage/생활교육_쓰레기로_읽고_쓰다.svg",
+        itemName: "아동교육을 위한 ICT기반 아동문학·도서 발간 역량강화",
+        subTitle: "2020.9 ~ 2020.12",
+        anotherInfo: "EDCN(한국국제교육개발협력원), 문화체육관광부, 한국국제문화교류진흥원",
+        isProject: true,
+    },
 ];
 
 export const projectData = [
@@ -142,4 +142,4 @@ export const projectData = [
         artlab: "부산 수영구 광남로 146, 광안갤러리 2F",
     },
     
-]
+];
