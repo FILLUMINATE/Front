@@ -7,6 +7,7 @@ import Layout from "../../layout/Layout";
 import { useState } from "react";
 import color from "../../styles/color";
 import font from "../../styles/font";
+import Button from "../../components/common/Button";
 
 function FeedWrite() {
   const [selectedImage, setSelectedImage] = useState();
@@ -48,10 +49,8 @@ function FeedWrite() {
             />
           </ImageUploadBox>
           <ButtonBox>
-            <StyledButton>취소</StyledButton>
-            <StyledButton onClick={() => console.log("등록")}>
-              등록
-            </StyledButton>
+            <Button>취소</Button>
+            <Button onClick={() => console.log("등록")}>등록</Button>
           </ButtonBox>
         </FeedContainer>
       </Container>
@@ -98,16 +97,4 @@ const ButtonBox = styled.div`
   justify-content: end;
   flex-direction: row;
   gap: 1.1rem;
-`;
-
-const StyledButton = styled.button`
-  padding: 1.3rem 3rem;
-  border: 1px solid ${color.gray200};
-  border-radius: 1.25rem;
-  background-color: white;
-  ${font.SubHead};
-  &:hover,
-  &:focus {
-    transition: 0.3s ease;
-  }
 `;

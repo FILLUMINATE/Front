@@ -11,13 +11,14 @@ function FeedDetail() {
       <Container>
         <FeedContainer>
           <div style={{ width: "100%" }}>
-            <Text $fontType={"H1"}>EEDA의 피드</Text>
+            <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
             id: {id}
           </div>
+
           <FeedBox>
             <LeftFeedBox>
-              <Text $fontType={"H2"}>이번 주 마중물 수업</Text>
-              <Text $fontType={""}>2023. 10. 07. (토)</Text>
+              <Text $fontType={"H2Bold"}>이번 주 마중물 수업</Text>
+              <Text $fontType={"SubHeadBold"}>2023. 10. 07. (토)</Text>
               <Text
                 $fontType={"Body1"}
                 style={{
@@ -70,7 +71,7 @@ const FeedBox = styled.div`
 `;
 
 const LeftFeedBox = styled.div`
-  max-width: 50%;
+  max-width: 40%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -79,7 +80,7 @@ const LeftFeedBox = styled.div`
 const RightFeedBox = styled.div`
   max-width: 50%;
   width: 50rem;
-  height: 19rem;
+  height: 25rem;
   background-color: red;
   border-radius: 1.25rem;
 `;
