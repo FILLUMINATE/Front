@@ -2,12 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import color from "../../styles/color";
-import font from "../../styles/font";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import Text from "../common/Text";
 import { useLoginMutation } from "../../api/auth/mutation";
-import { useEffect } from "react";
 
 function LoginModal({ isOpen, onClose }) {
   const [userId, setUserId] = useState("");
@@ -34,7 +32,7 @@ function LoginModal({ isOpen, onClose }) {
         <Container>
           <Content>
             <CloseBtn onClick={() => onClose()}>
-              <StyledImg src="images/Icon/CloseIcon.svg" alt="닫기" />
+              <StyledImg src="/images/Icon/CloseIcon.svg" alt="닫기" />
             </CloseBtn>
             <TitleArea>
               <Text $fontType={"H2Bold"}>관리자 계정으로 로그인</Text>

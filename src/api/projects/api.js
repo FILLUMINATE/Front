@@ -8,14 +8,13 @@ export const createProject = async (ProjectData) => {
 
 export const getProjects = async () => {
   const { data } = await instance.get(`/api/board`);
-  console.log(data);
   return data;
 };
 
 export const getProjectById = async (id) => {
   const { data } = await instance.get(`/api/board/${id}`);
-  console.log(data);
-  return data;
+  console.log(data[0]);
+  return data[0];
 };
 
 export const deleteProject = async (id) => {

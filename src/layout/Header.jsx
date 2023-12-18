@@ -2,9 +2,10 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import LoginModal from "../components/Header/LoginModal";
+
 import { UserContext } from "../context/UserContext";
 import Text from "../components/common/Text";
+import LoginModal from "../components/LoginModal/LoginModal";
 
 function Header() {
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);

@@ -10,6 +10,7 @@ import { UserContext } from "../../context/UserContext";
 
 function ProjectDetail() {
   const { id } = useParams();
+
   // const project = projectData[id];
 
   const { data: project } = useQuery({
