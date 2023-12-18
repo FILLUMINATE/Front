@@ -10,7 +10,6 @@ function Button({
   fontType,
   style,
   children,
-  onClick,
 }) {
   return (
     <StyledButton
@@ -21,7 +20,6 @@ function Button({
       placeholder={placeholder}
       fontType={fontType}
       style={style}
-      onClick={onClick}
     >
       {children}
     </StyledButton>
