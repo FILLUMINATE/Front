@@ -7,69 +7,64 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import Text from "../common/Text";
 import { useLoginMutation } from "../../api/auth/mutation";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 function LoginModal({ isOpen, onClose }) {
-    const [userId, setUserId] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-    
-    const loginMutate = useLoginMutation({ userId, userPassword });
-  
-    const handleUserIdChange = (e) => {
-      setUserId(e.target.value);
-      console.log(userId);
-    };
-  
-    const handleUserPasswordChange = (e) => {
-      setUserPassword(e.target.value);
-      console.log(userPassword)
-    };
+  const [userId, setUserId] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
-    const handleLogin = async () => {
-        loginMutate.mutate({userId, userPassword});
-        onClose();
-    }
+  const loginMutate = useLoginMutation({ userId, userPassword });
 
+  const handleUserIdChange = (e) => {
+    setUserId(e.target.value);
+  };
+
+  const handleUserPasswordChange = (e) => {
+    setUserPassword(e.target.value);
+  };
+
+  const handleLogin = async () => {
+    loginMutate.mutate({ userId, userPassword });
+    onClose();
+  };
 
   return (
     <>
       {isOpen ? (
         <Container>
-            <Content>
+          <Content>
             <CloseBtn onClick={() => onClose()}>
-                <StyledImg src="images/Icon/CloseIcon.svg" alt="닫기"/>
+              <StyledImg src="images/Icon/CloseIcon.svg" alt="닫기" />
             </CloseBtn>
             <TitleArea>
-            <Text $fontType={"H2Bold"}>관리자 계정으로 로그인</Text>
+              <Text $fontType={"H2Bold"}>관리자 계정으로 로그인</Text>
             </TitleArea>
 
-                <InfoForm>
-                    <Input 
-                    $fontType={"SubHeadBold"} 
-                    style={{ color: `${color.gray600}` }}
-                    type="text"
-                    id="userId"
-                    name="id"
-                    placeholder={"아이디"}
-                    onChange={handleUserIdChange}
-                />   
-                <Input 
-                    $fontType={"SubHeadBold"} 
-                    style={{ color: `${color.gray600}`}}
-                    type="password"
-                    id="userPassword"
-                    name="password"
-                    placeholder={"비밀번호"}
-                    onChange={handleUserPasswordChange}
-                />
+            <InfoForm>
+              <Input
+                $fontType={"SubHeadBold"}
+                style={{ color: `${color.gray600}` }}
+                type="text"
+                id="userId"
+                name="id"
+                placeholder={"아이디"}
+                onChange={handleUserIdChange}
+              />
+              <Input
+                $fontType={"SubHeadBold"}
+                style={{ color: `${color.gray600}` }}
+                type="password"
+                id="userPassword"
+                name="password"
+                placeholder={"비밀번호"}
+                onChange={handleUserPasswordChange}
+              />
 
-                <ButtonArea>
-                    <Button onClick={handleLogin}>
-                        로그인
-                    </Button>
-                </ButtonArea>
-                </InfoForm>
-            </Content>
+              <ButtonArea>
+                <Button onClick={handleLogin}>로그인</Button>
+              </ButtonArea>
+            </InfoForm>
+          </Content>
         </Container>
       ) : null}
     </>
@@ -115,13 +110,13 @@ const CloseBtn = styled.button`
   margin: 72px 63px 0px 0px;
   background-color: white;
   &:hover {
-      cursor: pointer;
+    cursor: pointer;
   }
 `;
 
 const StyledImg = styled.img`
-    background-color: white;
-`
+  background-color: white;
+`;
 
 const TitleArea = styled.div`
   display: flex;
@@ -132,10 +127,10 @@ const TitleArea = styled.div`
 `;
 
 const InfoForm = styled.div`
-    width: 31.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 41px;
+  width: 31.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
 `;
 
 const ButtonArea = styled.div`

@@ -93,8 +93,8 @@ function Main() {
                   ></Text>
                 </LeftFeedBox>
                 <RightFeedBox>
-                  <img
-                    src="/images/Icon/Arrow-up.svg"
+                  <Logo
+                    src="images/Logo.svg"
                     alt="피드"
                     style={{
                       width: "100%",
@@ -193,6 +193,6 @@ const PaginationContainer = styled.div`
 const RightFeedBox = styled.div`
   width: 50rem;
   height: 19rem;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 1.25rem;
 `;

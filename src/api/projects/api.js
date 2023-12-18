@@ -12,11 +12,12 @@ export const getProjects = async () => {
 };
 
 export const getProjectById = async (id) => {
-  const { data } = await instance.get(`/api/board/:${id}`);
+  const { data } = await instance.get(`/api/board/${id}`);
+  console.log(data);
   return data;
 };
 
 export const deleteProject = async (id) => {
-  const { data } = await instance.delete(`/api/board/:${id}`);
+  const { data } = await instance.delete(`/api/board/${id}`);
   return data;
 };

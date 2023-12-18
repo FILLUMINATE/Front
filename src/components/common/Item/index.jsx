@@ -2,7 +2,6 @@ import Text from "../../common/Text/index";
 import styled from "styled-components";
 import color from "../../../styles/color";
 
-
 function Item({ img, title, period, hashtag, anotherInfo, isExhibition }) {
   return (
     <Container>

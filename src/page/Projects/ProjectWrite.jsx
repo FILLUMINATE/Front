@@ -7,13 +7,50 @@ import Layout from "../../layout/Layout";
 import { useState } from "react";
 import color from "../../styles/color";
 import font from "../../styles/font";
+import Button from "../../components/common/Button";
+import { useProjectMutation } from "../../api/projects/mutation";
 
 function ProjectWrite() {
+  const mutation = useProjectMutation();
   const [selectedImage, setSelectedImage] = useState();
+
+  const [formValues, setFormValues] = useState({
+    title: "",
+    period: "",
+    description: "",
+    hashtag: "",
+    supprt: "",
+    address: "",
+  });
+
+  const handleInputChange = (event) => {
+    setFormValues({ ...formValues, [event.target.name]: event.target.value });
+  };
+
   const handleImageUpload = (event) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+    }
+  };
+
+  const handleSubmit = () => {
+    try {
+      const formData = new FormData();
+      const fileField = document.querySelector('input[type="file"]');
+
+      formData.append("img", fileField.files[0]);
+      formData.append("title", formValues.title);
+      formData.append("period", formValues.period);
+      formData.append("description", formValues.description);
+      formData.append("hashtag", formValues.hashtag);
+      formData.append("support", formValues.support);
+      formData.append("address", formValues.address);
+
+      mutation.mutate(formData);
+    } catch (error) {
+      alert("프로젝트를 추가하지 못 했습니다.");
+      console.log(error);
     }
   };
 
@@ -24,9 +61,42 @@ function ProjectWrite() {
           <Text $fontType={"H1"} style={{ width: "100%" }}>
             프로젝트 게시글 작성
           </Text>
-          <Input placeholder={"제목"} style={{ width: "100%" }} />
-          <Input placeholder={"날짜"} style={{ width: "100%" }} />
-          <TextArea placeholder={"설명"} style={{ width: "100%" }} />
+          <Input
+            name="title"
+            placeholder={"제목"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Input
+            name="period"
+            placeholder={"기간"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Input
+            name="address"
+            placeholder={"주소"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Input
+            name="hashtag"
+            placeholder={"해시태그"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Input
+            name="support"
+            placeholder={"지원"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <TextArea
+            name="description"
+            placeholder={"설명"}
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
           <ImageUploadBox
             onClick={() => document.getElementById("fileInput")?.click()}
           >
@@ -48,10 +118,8 @@ function ProjectWrite() {
             />
           </ImageUploadBox>
           <ButtonBox>
-            <StyledButton>취소</StyledButton>
-            <StyledButton onClick={() => console.log("등록")}>
-              등록
-            </StyledButton>
+            <Button>취소</Button>
+            <Button onClick={handleSubmit}>등록</Button>
           </ButtonBox>
         </FeedContainer>
       </Container>

@@ -17,7 +17,7 @@ function ProjectDetail() {
     queryFn: () => getProjectById(id),
   });
 
-  const labAddress = project.address;
+  const labAddress = project?.address;
 
   // 네이버 지도 링크 URL
   const naverMapUrl = `https://map.naver.com/?query=${encodeURIComponent(
@@ -33,62 +33,62 @@ function ProjectDetail() {
           </div>
           <FeedBox>
             <LeftFeedBox>
-              <Text $fontType={"H2Bold"}>{project.title}</Text>
-              <Text $fontType={"SubHeadBold"}>{project.period}</Text>
-              {project.hashtag && 
+              <Text $fontType={"H2Bold"}>{project?.title}</Text>
+              <Text $fontType={"SubHeadBold"}>{project?.period}</Text>
+              {project?.hashtag && (
                 <Text
-                $fontType={"Body1"}
-                style={{
+                  $fontType={"Body1"}
+                  style={{
                     color: `${color.hashtag}`,
-                }}
+                  }}
                 >
-                {project.hashtag}
+                  {project?.hashtag}
                 </Text>
-              }
-              {project.description &&               
-              <Text
-                $fontType={"Body1"}
-                style={{
-                  fontWeight: "700",
-                  wordWrap: "break-word",
-                }}
-              >
-                  {project.description}
-              </Text>}
-              {project.support && 
+              )}
+              {project?.description && (
+                <Text
+                  $fontType={"Body1"}
+                  style={{
+                    fontWeight: "700",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {project?.description}
+                </Text>
+              )}
+              {project?.support && (
                 <Row>
-                <Text $fontType={"Body1"}>
-                지원
-                </Text>
-                <Text $fontType={"Body1"} style={{ fontWeight: "700"}}>
-                    {project.support}
-                </Text>
+                  <Text $fontType={"Body1"}>지원</Text>
+                  <Text $fontType={"Body1"} style={{ fontWeight: "700" }}>
+                    {project?.support}
+                  </Text>
                 </Row>
-              }
-              {project.address && 
+              )}
+              {project?.address && (
                 <Row>
-                <Text $fontType={"Body1"}>
-                작업실
-                </Text>
-                <StyledLink to={`${naverMapUrl}`} target="_blank" rel="noopener noreferrer">
-                    <Text $fontType={"Body1"} style={{ fontWeight: "700"}}>
-                        {project.address}
+                  <Text $fontType={"Body1"}>작업실</Text>
+                  <StyledLink
+                    to={`${naverMapUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Text $fontType={"Body1"} style={{ fontWeight: "700" }}>
+                      {project?.address}
                     </Text>
-                </StyledLink>
+                  </StyledLink>
                 </Row>
-              }
-
+              )}
             </LeftFeedBox>
 
-            {project.imgUrl && 
-            <RightFeedBox>
-            <img
-                src={`${project.imgUrl}`}
-                alt="피드"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-            </RightFeedBox>
-            }
+            {project?.imgUrl && (
+              <RightFeedBox>
+                <img
+                  src={`${project?.imgUrl}`}
+                  alt="피드"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </RightFeedBox>
+            )}
           </FeedBox>
         </FeedContainer>
       </Container>
@@ -137,10 +137,10 @@ const RightFeedBox = styled.div`
 `;
 
 const Row = styled.div`
-    display: flex;
-    gap: 1.12rem;
-`
+  display: flex;
+  gap: 1.12rem;
+`;
 
 const StyledLink = styled(Link)`
-    color: black;
-`
+  color: black;
+`;
