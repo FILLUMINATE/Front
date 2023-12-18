@@ -8,6 +8,7 @@ export const createProject = async (ProjectData) => {
 
 export const getProjects = async () => {
   const { data } = await instance.get(`/api/board`);
+  console.log(data);
   return data;
 };
 

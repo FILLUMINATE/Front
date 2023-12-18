@@ -56,7 +56,7 @@ function Project() {
         <ProjectItems>
           {projects.map((item, index) => (
             // {projectData.map((item, index) => (
-            <StyledLink to={`/project/${index}`} key={index}>
+            <StyledLink to={`/project/${item.boardId}`} key={index}>
               <SmallItem
                 title={item.title}
                 period={item.period}
