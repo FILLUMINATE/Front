@@ -29,6 +29,7 @@ export const getFeed = async (id) => {
 
 export const getImgPath = async (id) => {
   const { data } = await instance.get(`/api/board/img/${id}`);
+  console.log(data[0]);
   return data[0];
 };
 

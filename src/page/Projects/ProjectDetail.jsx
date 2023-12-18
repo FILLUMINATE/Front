@@ -7,6 +7,7 @@ import color from "../../styles/color";
 import { getProjectById } from "../../api/projects/api";
 import { useQuery } from "react-query";
 import { UserContext } from "../../context/UserContext";
+import { getImgPath } from "../../api/feed/api";
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -17,6 +18,16 @@ function ProjectDetail() {
     queryKey: ["project"],
     queryFn: () => getProjectById(id),
   });
+
+  const {
+    data: imgPath,
+    error,
+    isError,
+  } = useQuery(["imgPath", id], () => getImgPath(id));
+
+  if (isError) {
+    console.error(error);
+  }
 
   const labAddress = project?.address;
 
@@ -81,12 +92,17 @@ function ProjectDetail() {
               )}
             </LeftFeedBox>
 
-            {project?.imgUrl && (
+            {imgPath?.imgLink && (
               <RightFeedBox>
                 <img
-                  src={`${project?.imgUrl}`}
+                  src={`${process.env.REACT_APP_API_URL}/image/${imgPath?.imgLink}`}
                   alt="피드"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "1.25rem",
+                  }}
                 />
               </RightFeedBox>
             )}
@@ -124,16 +140,16 @@ const FeedBox = styled.div`
 `;
 
 const LeftFeedBox = styled.div`
-  max-width: 50%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `;
 
 const RightFeedBox = styled.div`
-  max-width: 50%;
+  width: 50%;
   width: 50rem;
-  height: 19rem;
+  height: 25rem;
   border-radius: 1.25rem;
 `;
 
