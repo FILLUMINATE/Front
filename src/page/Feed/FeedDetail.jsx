@@ -46,18 +46,20 @@ function FeedDetail() {
               </Text>
             </LeftFeedBox>
 
-            <RightFeedBox>
-              <img
-                src={`${process.env.REACT_APP_API_URL}/image/${imgPath?.imgLink}`}
-                alt="피드"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: "1.25rem",
-                }}
-              />
-            </RightFeedBox>
+            {imgPath?.imgLink && (
+              <RightFeedBox>
+                <img
+                  src={`${process.env.REACT_APP_API_URL}/image/${imgPath?.imgLink}`}
+                  alt="피드"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "1.25rem",
+                  }}
+                />
+              </RightFeedBox>
+            )}
           </FeedBox>
         </FeedContainer>
       </Container>
