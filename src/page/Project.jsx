@@ -5,8 +5,16 @@ import Item from "../components/common/Item";
 import SmallItem from "../components/Projects/SmallItem";
 import { Link } from "react-router-dom";
 import { typicalProjectData, projectData } from "../mocks/projectData";
+import { useQuery } from "react-query";
+import { getProjects } from "../api/projects/api";
+
 
 function Project() {
+  const { data: projects = [] } = useQuery({
+    queryKey: ["projects"],
+    queryFn: () => getProjects()
+  })
+
   return (
     <Layout>
       <Container>
@@ -18,12 +26,11 @@ function Project() {
             <StyledLink to={`/project/${index}`}>
               <Item
                 key={index}
-                imgUrl={item.imgUrl}
-                itemName={item.itemName}
-                subTitle={item.subTitle}
-                hashTag={item.hashTag}
-                anotherInfo={item.anotherInfo}
-                isProject={item.isProject}
+                img={item.img}
+                title={item.title}
+                period={item.period}
+                hashtag={item.hashtag}
+                support={item.support}
               />
             </StyledLink>
           ))}
@@ -32,15 +39,15 @@ function Project() {
 
         <Text $fontType={"H2Bold"}>전체 프로젝트</Text>
         <ProjectItems>
-            {projectData.map((item, index) => (
+            {projects.map((item, index) => (
+            // {projectData.map((item, index) => (
               <StyledLink to={`/project/${index}`}>
                 <SmallItem
-                  itemName={item.itemName}
-                  subTitle={item.subTitle}
-                  anotherInfo={item.anotherInfo}
+                  title={item.title}
+                  period={item.period}
+                  support={item.support}
                 />
               </StyledLink>
-
             ))}
         </ProjectItems>
       </Container>

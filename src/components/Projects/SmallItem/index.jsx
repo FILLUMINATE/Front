@@ -2,16 +2,16 @@ import Text from "../../common/Text/index";
 import styled from "styled-components";
 import color from "../../../styles/color";
 
-function SmallItem({ itemName, subTitle, anotherInfo }) {
+function SmallItem({ title, period, support }) {
   return (
     <Container>
         <ItemInfoBox>
-            <Text $fontType={"H3Bold"}>{itemName}</Text>
-            <Text $fontType={"SubHeadBold"} color={color.gray400}>{subTitle}</Text>
+            <Text $fontType={"H3Bold"}>{title}</Text>
+            <Text $fontType={"SubHeadBold"} color={color.gray400}>{period}</Text>
         </ItemInfoBox>
         <PlaceTextBox>
             <Text $fontType={"SubHead"}>지원</Text>
-            <Text $fontType={"SubHeadBold"}>{anotherInfo}</Text>
+            <Text $fontType={"SubHeadBold"}>{support}</Text>
         </PlaceTextBox>
     </Container>
   );

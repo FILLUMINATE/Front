@@ -31,12 +31,11 @@ function Categories() {
           <StyledLink to={`/category/${index}`}>
             <Item
               key={index}
-              imgUrl={item.imgUrl}
-              itemName={item.itemName}
-              subTitle={item.subTitle}
-              hashTag={item.hashTag}
+              img={item.img}
+              title={item.title}
+              period={item.period}
+              hashtag={item.hashtag}
               anotherInfo={item.anotherInfo}
-              isProject={item.isProject}
             />
           </StyledLink>
         ))}

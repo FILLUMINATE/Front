@@ -4,16 +4,24 @@ import { Link, useParams } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import { projectData } from "../../mocks/projectData";
 import color from "../../styles/color";
+import { getProjectById } from "../../api/projects/api";
+import { useQuery } from "react-query";
+import { UserContext } from "../../context/UserContext";
 
 function ProjectDetail() {
   const { id } = useParams();
-  const project = projectData[id];
+  // const project = projectData[id];
 
-  const artlabAddress = project.artlab;
+  const { data: project } = useQuery({
+    queryKey: ["project"],
+    queryFn: () => getProjectById(id),
+  });
+
+  const labAddress = project.address;
 
   // 네이버 지도 링크 URL
   const naverMapUrl = `https://map.naver.com/?query=${encodeURIComponent(
-    artlabAddress
+    labAddress
   )}`;
 
   return (
@@ -25,16 +33,16 @@ function ProjectDetail() {
           </div>
           <FeedBox>
             <LeftFeedBox>
-              <Text $fontType={"H2Bold"}>{project.itemName}</Text>
-              <Text $fontType={"SubHeadBold"}>{project.subTitle}</Text>
-              {project.hashTag && 
+              <Text $fontType={"H2Bold"}>{project.title}</Text>
+              <Text $fontType={"SubHeadBold"}>{project.period}</Text>
+              {project.hashtag && 
                 <Text
                 $fontType={"Body1"}
                 style={{
-                    color: `${color.hashTag}`,
+                    color: `${color.hashtag}`,
                 }}
                 >
-                {project.hashTag}
+                {project.hashtag}
                 </Text>
               }
               {project.description &&               
@@ -47,24 +55,24 @@ function ProjectDetail() {
               >
                   {project.description}
               </Text>}
-              {project.anotherInfo && 
+              {project.support && 
                 <Row>
                 <Text $fontType={"Body1"}>
                 지원
                 </Text>
                 <Text $fontType={"Body1"} style={{ fontWeight: "700"}}>
-                    {project.anotherInfo}
+                    {project.support}
                 </Text>
                 </Row>
               }
-              {project.artlab && 
+              {project.address && 
                 <Row>
                 <Text $fontType={"Body1"}>
                 작업실
                 </Text>
                 <StyledLink to={`${naverMapUrl}`} target="_blank" rel="noopener noreferrer">
                     <Text $fontType={"Body1"} style={{ fontWeight: "700"}}>
-                        {project.artlab}
+                        {project.address}
                     </Text>
                 </StyledLink>
                 </Row>

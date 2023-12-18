@@ -2,28 +2,30 @@ import Text from "../../common/Text/index";
 import styled from "styled-components";
 import color from "../../../styles/color";
 
-function Item({ imgUrl, itemName, subTitle, hashTag, anotherInfo, isProject }) {
+function Item({ img, title, period, hashtag, anotherInfo, isExhibition }) {
   return (
     <Container>
-      <ImgBox src={imgUrl} alt={itemName} />
+      <ImgBox src={img} alt={title} />
       <ContentBox>
         <ItemInfoBox>
-          <Text $fontType={"H3Bold"}>{itemName}</Text>
+          <Text $fontType={"H3Bold"}>{title}</Text>
           <Text $fontType={"SubHeadBold"} color={color.gray400}>
-            {subTitle}
+            {period}
           </Text>
-          <Text $fontType={"SubHead"} color={color.hashTag}>
-            {hashTag}
+          <Text $fontType={"SubHead"} color={color.hashtag}>
+            {hashtag}
           </Text>
         </ItemInfoBox>
         <PlaceTextBox>
-          {isProject ? (
+          {isExhibition ? (
+            <>
+              <Text $fontType={"SubHeadBold"}>{anotherInfo}</Text>
+            </>
+          ) : (
             <>
               <Text $fontType={"SubHead"}>지원</Text>
               <Text $fontType={"SubHeadBold"}> {anotherInfo}</Text>
             </>
-          ) : (
-            <Text $fontType={"SubHeadBold"}>{anotherInfo}</Text>
           )}
         </PlaceTextBox>
       </ContentBox>
