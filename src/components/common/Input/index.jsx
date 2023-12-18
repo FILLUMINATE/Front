@@ -2,7 +2,15 @@ import styled from "styled-components";
 import { font } from "../../../styles/font";
 import color from "../../../styles/color";
 
-function Input({ $fontType, value, onChange, placeholder, fontType, style }) {
+function Input({
+  $fontType,
+  value,
+  onChange,
+  placeholder,
+  fontType,
+  style,
+  ...props
+}) {
   return (
     <StyledInput
       $fontType={$fontType}
@@ -11,6 +19,7 @@ function Input({ $fontType, value, onChange, placeholder, fontType, style }) {
       placeholder={placeholder}
       fontType={fontType}
       style={style}
+      {...props}
     />
   );
 }

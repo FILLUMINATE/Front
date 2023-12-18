@@ -2,12 +2,12 @@ import styled from "styled-components";
 import Text from "../../common/Text";
 import color from "../../../styles/color";
 
-export default function FeedItem({ title, date }) {
+export default function FeedItem({ title, period }) {
   return (
     <Box>
-      <Text $fontType={"H3Bold"}>{title}제목</Text>
+      <Text $fontType={"H3Bold"}>{title}</Text>
       <Text $fontType={"SubHeadBold"} style={{ color: `${color.gray400}` }}>
-        {date}날짜
+        {period}
       </Text>
     </Box>
   );
