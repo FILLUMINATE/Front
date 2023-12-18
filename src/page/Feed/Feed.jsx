@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import FeedItem from "../../components/feed/FeedItem";
 import { useQuery } from "react-query";
-import { getFeeds } from "../../api/feed/api";
+import { getNotices } from "../../api/feed/api";
 
 function Feed() {
-  const { data: feeds } = useQuery({
-    queryKey: ["feeds"],
-    queryFn: () => getFeeds(),
+  const { data: notices } = useQuery({
+    queryKey: ["notices"],
+    queryFn: () => getNotices(),
   });
 
   return (
@@ -17,8 +17,8 @@ function Feed() {
       <Container>
         <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
         <FeedContainer>
-          {feeds &&
-            feeds.map((feed, idx) => (
+          {notices &&
+            notices.map((feed, idx) => (
               <StyledLink to={`/feed/${feed.boardId}`} key={idx}>
                 <FeedItem {...feed} />
               </StyledLink>

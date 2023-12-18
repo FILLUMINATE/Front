@@ -6,8 +6,15 @@ export const createFeed = async (FeedData) => {
   return data;
 };
 
-export const getFeeds = async () => {
+export const getNotices = async () => {
   const { data } = await instance.get(`/api/board/notice`);
+  console.log(data);
+  return data;
+};
+
+export const getFeeds = async () => {
+  const { data } = await instance.get(`/api/board`);
+  console.log(data);
   return data;
 };
 

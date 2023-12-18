@@ -5,20 +5,35 @@ import { useState } from "react";
 import Text from "../components/common/Text";
 import { Link } from "react-router-dom";
 import color from "../styles/color";
+import { useQuery } from "react-query";
+import { getNotices } from "../api/feed/api";
+import { useEffect } from "react";
 
 function Main() {
-  const gottenData = [1, 2, 3, 4, 5] || [];
+  const { data: notices } = useQuery({
+    queryKey: ["notices"],
+    queryFn: () => getNotices(),
+  });
+
   const ITEMS_PER_PAGE = 1;
-  const LAST_PAGE = Math.ceil(gottenData.length / ITEMS_PER_PAGE);
+  const LAST_PAGE = notices ? Math.ceil(notices.length / ITEMS_PER_PAGE) : 0;
 
   const [page, setPage] = useState(1);
-  const [data, setData] = useState(gottenData.slice(0, ITEMS_PER_PAGE));
+  const [data, setData] = useState(
+    notices ? notices.slice(0, ITEMS_PER_PAGE) : []
+  );
+
+  useEffect(() => {
+    if (notices) {
+      setData(notices.slice(0, ITEMS_PER_PAGE));
+    }
+  }, [notices]);
 
   const handlePage = (event, value) => {
     setPage(value);
     const start = ITEMS_PER_PAGE * (value - 1);
     const end = value === LAST_PAGE ? undefined : ITEMS_PER_PAGE * value;
-    setData(gottenData.slice(start, end));
+    setData(notices.slice(start, end));
   };
 
   return (
@@ -37,7 +52,7 @@ function Main() {
               }}
             >
               <img src="images/Icon/Megaphone.svg" alt="피드" />
-              <Text $fontType={"H3Bold"}>EEDA의 피드</Text>
+              <Text $fontType={"H3Bold"}>EEDA 피드</Text>
             </div>
             <StyledLink
               to="/feed"
@@ -51,35 +66,46 @@ function Main() {
               <img src="images/Icon/Arrow-up.svg" alt="피드" />
             </StyledLink>
           </TopFeedBox>
-          <FeedBox>
-            <LeftFeedBox>
-              <TopFeedBox style={{ padding: "0", margin: "0", width: "100%" }}>
-                <Text $fontType={"SubHeadBold"}>이번 주 마중물 수업</Text>
-                <Text $fontType={"SubHeadBold"} style={{ fontSize: "1rem" }}>
-                  2023. 10. 07. (토)
-                </Text>
-              </TopFeedBox>
-              <div
-                style={{
-                  border: `1px solid ${color.gray200}`,
-                  width: "100%",
-                }}
-              ></div>
-              <Text
-                $fontType={"Body1"}
-                style={{ fontStyle: "nomal", wordWrap: "break-word" }}
-              >
-                dkdk{data}
-              </Text>
-            </LeftFeedBox>
-            <RightFeedBox>
-              <img
-                src="/images/Icon/Arrow-up.svg"
-                alt="피드"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </RightFeedBox>
-          </FeedBox>
+          {data.map((notice, idx) => (
+            <div key={idx} style={{ width: "100%" }}>
+              <FeedBox>
+                <LeftFeedBox>
+                  <TopFeedBox
+                    style={{ padding: "0", margin: "0", width: "100%" }}
+                  >
+                    <Text $fontType={"SubHeadBold"}>{notice?.title}</Text>
+                    <Text
+                      $fontType={"SubHeadBold"}
+                      style={{ fontSize: "1rem" }}
+                    >
+                      {notice?.period}
+                    </Text>
+                  </TopFeedBox>
+                  <div
+                    style={{
+                      border: `1px solid ${color.gray200}`,
+                      width: "100%",
+                    }}
+                  ></div>
+                  <Text
+                    $fontType={"Body1"}
+                    style={{ fontStyle: "nomal", wordWrap: "break-word" }}
+                  ></Text>
+                </LeftFeedBox>
+                <RightFeedBox>
+                  <img
+                    src="/images/Icon/Arrow-up.svg"
+                    alt="피드"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </RightFeedBox>
+              </FeedBox>
+            </div>
+          ))}
           <PaginationContainer>
             <Pagination
               count={LAST_PAGE}
