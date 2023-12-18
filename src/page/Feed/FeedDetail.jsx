@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import { useQuery } from "react-query";
 import { getFeed, getImgPath } from "../../api/feed/api";
+
 function FeedDetail() {
   const { id } = useParams();
 
@@ -47,14 +48,14 @@ function FeedDetail() {
 
             <RightFeedBox>
               <img
-                src={`/image/${imgPath?.imgLink}`}
+                src={`${process.env.REACT_APP_API_URL}/image/${imgPath?.imgLink}`}
                 alt="피드"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-              <img
-                src={`/image/ë§ì¤ë¬¼ììì´ë¯¸ì§1702886324151.png`}
-                alt="피드"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "1.25rem",
+                }}
               />
             </RightFeedBox>
           </FeedBox>
@@ -101,6 +102,5 @@ const RightFeedBox = styled.div`
   max-width: 50%;
   width: 50rem;
   height: 25rem;
-  background-color: red;
   border-radius: 1.25rem;
 `;
