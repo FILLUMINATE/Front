@@ -10,15 +10,18 @@ function Button({
   fontType,
   style,
   children,
+  onClick,
 }) {
   return (
     <StyledButton
+      type="button"
       $fontType={$fontType}
       value={value}
       onClick={onClick}
       placeholder={placeholder}
       fontType={fontType}
       style={style}
+      onClick={onClick}
     >
       {children}
     </StyledButton>
@@ -39,4 +42,5 @@ const StyledButton = styled.button`
     transition: 0.3s ease;
     background-color: ${color.gray200};
   }
+  cursor: pointer;
 `;

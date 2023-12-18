@@ -8,13 +8,43 @@ import { useState } from "react";
 import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../../components/common/Button";
+import { useAddFeedMutation } from "../../api/feed/mutation";
 
 function FeedWrite() {
+  const mutation = useAddFeedMutation();
+
+  const [formValues, setFormValues] = useState({
+    title: "",
+    period: "",
+    description: "",
+  });
+
+  const handleInputChange = (event) => {
+    setFormValues({ ...formValues, [event.target.name]: event.target.value });
+  };
+
   const [selectedImage, setSelectedImage] = useState();
   const handleImageUpload = (event) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+    }
+  };
+
+  const handleSubmit = () => {
+    try {
+      const formData = new FormData();
+      const fileField = document.querySelector('input[type="file"]');
+
+      formData.append("img", fileField.files[0]);
+      formData.append("title", formValues.title);
+      formData.append("period", formValues.period);
+      formData.append("description", formValues.description);
+
+      mutation.mutate(formData);
+    } catch (error) {
+      alert("상품을 추가하지 못 했습니다.");
+      console.log(error);
     }
   };
 
@@ -25,9 +55,24 @@ function FeedWrite() {
           <Text $fontType={"H1Bold"} style={{ width: "100%" }}>
             EEDA의 피드 작성
           </Text>
-          <Input placeholder={"제목"} style={{ width: "100%" }} />
-          <Input placeholder={"날짜"} style={{ width: "100%" }} />
-          <TextArea placeholder={"설명"} style={{ width: "100%" }} />
+          <Input
+            name="title"
+            onChange={handleInputChange}
+            placeholder={"제목"}
+            style={{ width: "100%" }}
+          />
+          <Input
+            name="period"
+            onChange={handleInputChange}
+            placeholder={"기간 (ex 2023.12.18 ~ 2023.12.23)"}
+            style={{ width: "100%" }}
+          />
+          <TextArea
+            name="description"
+            onChange={handleInputChange}
+            placeholder={"설명"}
+            style={{ width: "100%" }}
+          />
           <ImageUploadBox
             onClick={() => document.getElementById("fileInput")?.click()}
           >
@@ -50,7 +95,7 @@ function FeedWrite() {
           </ImageUploadBox>
           <ButtonBox>
             <Button>취소</Button>
-            <Button onClick={() => console.log("등록")}>등록</Button>
+            <Button onClick={handleSubmit}>등록</Button>
           </ButtonBox>
         </FeedContainer>
       </Container>

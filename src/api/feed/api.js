@@ -3,11 +3,13 @@ import { instance } from "../instance/instance";
 // 로그인 인증 필요
 export const createFeed = async (FeedData) => {
   const { data } = await instance.post(`/api/board`, FeedData);
+  console.log("data:", data);
   return data;
 };
 
 export const getFeeds = async () => {
   const { data } = await instance.get(`/api/board/notice`);
+  console.log(data);
   return data;
 };
 

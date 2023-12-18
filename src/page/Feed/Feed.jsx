@@ -32,7 +32,7 @@ function Feed() {
         <FeedContainer>
           {feeds &&
             feeds.map((feed, idx) => (
-              <StyledLink to={`/feed/${feed.id}`} key={idx}>
+              <StyledLink to={`/feed/${feed.boardId}`} key={idx}>
                 <FeedItem {...feed} />
               </StyledLink>
             ))}
