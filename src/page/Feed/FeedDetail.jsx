@@ -2,9 +2,25 @@ import styled from "styled-components";
 import Text from "../../components/common/Text";
 import { useParams } from "react-router-dom";
 import Layout from "../../layout/Layout";
-
+import { useQuery } from "react-query";
+import { getFeed, getImgPath } from "../../api/feed/api";
 function FeedDetail() {
   const { id } = useParams();
+
+  const { data: feed } = useQuery({
+    queryKey: ["feed"],
+    queryFn: () => getFeed(id),
+  });
+
+  const {
+    data: imgPath,
+    error,
+    isError,
+  } = useQuery(["imgPath", id], () => getImgPath(id));
+
+  if (isError) {
+    console.error(error);
+  }
 
   return (
     <Layout>
@@ -12,13 +28,12 @@ function FeedDetail() {
         <FeedContainer>
           <div style={{ width: "100%" }}>
             <Text $fontType={"H1Bold"}>EEDA의 피드</Text>
-            id: {id}
           </div>
 
           <FeedBox>
             <LeftFeedBox>
-              <Text $fontType={"H2Bold"}>이번 주 마중물 수업</Text>
-              <Text $fontType={"SubHeadBold"}>2023. 10. 07. (토)</Text>
+              <Text $fontType={"H2Bold"}>{feed?.title}</Text>
+              <Text $fontType={"SubHeadBold"}>{feed?.period}</Text>
               <Text
                 $fontType={"Body1"}
                 style={{
@@ -26,13 +41,18 @@ function FeedDetail() {
                   wordWrap: "break-word",
                 }}
               >
-                dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk
+                {feed?.description}
               </Text>
             </LeftFeedBox>
 
             <RightFeedBox>
               <img
-                src="/images/Icon/Arrow-up.svg"
+                src={`/image/${imgPath?.imgLink}`}
+                alt="피드"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <img
+                src={`/image/ë§ì¤ë¬¼ììì´ë¯¸ì§1702886324151.png`}
                 alt="피드"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
