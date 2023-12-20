@@ -17,7 +17,6 @@ const NoticeItem = ({ notice }) => {
         <LeftFeedBox>
           <TopFeedBox style={{ padding: "0", margin: "0", width: "100%" }}>
             <Text $fontType={"SubHeadBold"}>{notice?.title}</Text>
-            <Text $fontType={"SubHeadBold"}>{notice?.boardId}</Text>
             <Text $fontType={"SubHeadBold"} style={{ fontSize: "1rem" }}>
               {notice?.period}
             </Text>

@@ -9,11 +9,13 @@ import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../../components/common/Button";
 import { useAddFeedMutation } from "../../api/feed/mutation";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 
 function FeedWrite() {
   const { pathname } = useLocation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,6 +52,7 @@ function FeedWrite() {
       formData.append("description", formValues.description);
 
       mutation.mutate(formData);
+      navigate("/");
     } catch (error) {
       alert("상품을 추가하지 못 했습니다.");
       console.log(error);
