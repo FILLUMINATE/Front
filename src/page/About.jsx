@@ -118,7 +118,7 @@ function About() {
             ABOUT EEDA
           </Text>
           <Box>
-            <LogoImage src="/images/Logo.svg" alt="Logo" />
+            <LogoImage src={process.env.PUBLIC_URL + `/images/Logo.svg`} alt="Logo" />
             <EEDATextBox>
               {EEDATexts.map((data) => (
                 <EEDAText>
@@ -168,7 +168,7 @@ function About() {
               <Text $fontType={"H3"}>2017년 12월 15일 설립되었어요.</Text>
             </div>
           </Description>
-          <img src="/images/icon/ExpertIcon.svg" alt="icons" />
+          <img src={process.env.PUBLIC_URL + `/images/icon/ExpertIcon.svg`} alt="icons" />
         </DescriptionDiv>
         <GoalDiv>
           <Text $fontType={"H2Bold"}>EEDA의 목표</Text>
@@ -178,13 +178,13 @@ function About() {
                 first="지역기반 인재 중심"
                 second="인적·물적 네트워크 활성화"
                 third="     "
-                image="/images/icon/GoalIconLocation.svg"
+                image={process.env.PUBLIC_URL + `/images/icon/GoalIconLocation.svg`}
               />
               <GoalBoxComponent
                 first="문화예술기반의 교육, 전시,"
                 second="융합 컨텐츠 개발 및 설계로"
                 third="지역 사회에 공헌"
-                image="/images/icon/GoalIconProfile.svg"
+                image={process.env.PUBLIC_URL + `/images/icon/GoalIconProfile.svg`}
               />
             </GoalBoxGroup>
             <GoalBoxGroup style={{ marginLeft: "266px" }}>
@@ -192,13 +192,13 @@ function About() {
                 first="예술실천공동체로서의"
                 second="창의융합인재 양성"
                 third="     "
-                image="/images/icon/GoalIconCloud.svg"
+                image={process.env.PUBLIC_URL + `/images/icon/GoalIconCloud.svg`}
               />
               <GoalBoxComponent
                 first="지역사회 발전에 기여하며"
                 second="세계시민의식을 가지고"
                 third="해외교육프로그램 개발 및 설계"
-                image="/images/icon/GoalIconExplore.svg"
+                image={process.env.PUBLIC_URL + `/images/icon/GoalIconExplore.svg`}
               />
             </GoalBoxGroup>
           </GoalBoxes>
@@ -214,11 +214,11 @@ function About() {
           <Text $fontType={"H2Bold"}>연락처</Text>
           <ContactContainer>
             <ContactBox>
-              <img src="/images/icon/PhonecallIcon.svg" alt="img" />
+              <img src={process.env.PUBLIC_URL + `/images/icon/PhonecallIcon.svg`} alt="img" />
               <Text $fontType={"H3Bold"}>010-3614-1385</Text>
             </ContactBox>
             <ContactBox>
-              <img src="/images/icon/MailIcon.svg" alt="img" />
+              <img src={process.env.PUBLIC_URL + `/images/icon/MailIcon.svg`} alt="img" />
               <Text $fontType={"H3Bold"}>amaeahn@naver.com</Text>
             </ContactBox>
           </ContactContainer>
