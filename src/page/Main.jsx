@@ -18,10 +18,12 @@ function Main() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const { data: notices } = useQuery({
+  const { data: allNotices } = useQuery({
     queryKey: ["notices"],
     queryFn: () => getNotices(),
   });
+
+  const notices = allNotices ? allNotices.slice(0, 5) : null;
 
   const ITEMS_PER_PAGE = 1;
   const LAST_PAGE = notices ? Math.ceil(notices.length / ITEMS_PER_PAGE) : 0;
@@ -30,12 +32,6 @@ function Main() {
   const [data, setData] = useState(
     notices ? notices.slice(0, ITEMS_PER_PAGE) : []
   );
-
-  useEffect(() => {
-    if (notices) {
-      setData(notices.slice(0, ITEMS_PER_PAGE));
-    }
-  }, [notices]);
 
   const handlePage = (event, value) => {
     setPage(value);

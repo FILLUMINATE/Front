@@ -32,9 +32,14 @@ const NoticeItem = ({ notice }) => {
         <RightFeedBox>
           {imgPath && (
             <img
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "1.25rem",
+              }}
               src={`${process.env.REACT_APP_API_URL}/image/${imgPath.imgLink}`}
               alt="피드"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           )}
         </RightFeedBox>
