@@ -40,7 +40,7 @@ function Main() {
     <Layout>
       <Container>
         <VideoBox>
-          <Logo src="images/Logo.svg" />
+          <Logo src="/images/Logo.svg" />
         </VideoBox>
         <FeedContainer>
           <TopFeedBox>
@@ -51,7 +51,7 @@ function Main() {
                 gap: "10px",
               }}
             >
-              <img src="images/Icon/Megaphone.svg" alt="피드" />
+              <img src="/images/Icon/Megaphone.svg" alt="피드" />
               <Text $fontType={"H3Bold"}>EEDA 피드</Text>
             </div>
             <StyledLink
@@ -63,7 +63,7 @@ function Main() {
               }}
             >
               <Text $fontType={"SubHeadBold"}>더보기</Text>
-              <img src="images/Icon/Arrow-up.svg" alt="피드" />
+              <img src="/images/Icon/Arrow-up.svg" alt="피드" />
             </StyledLink>
           </TopFeedBox>
           {data.map((notice, idx) => (
@@ -94,7 +94,7 @@ function Main() {
                 </LeftFeedBox>
                 <RightFeedBox>
                   <Logo
-                    src="images/Logo.svg"
+                    src="/images/Logo.svg"
                     alt="피드"
                     style={{
                       width: "100%",
