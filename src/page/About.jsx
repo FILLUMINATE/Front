@@ -192,7 +192,7 @@ function About() {
                 first="예술실천공동체로서의"
                 second="창의융합인재 양성"
                 third="     "
-                image={process.env.PUBLIC_URL + `/images/Icon/GoalIconCloud.svg`}
+                image={process.env.PUBLIC_URL + `/images/Icon/GoalIconcloud.svg`}
               />
               <GoalBoxComponent
                 first="지역사회 발전에 기여하며"

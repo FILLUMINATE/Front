@@ -61,9 +61,9 @@ function CategoriesDetail() {
               )}
             </LeftFeedBox>
 
-            {category.imgUrl && (
+            {category.img && (
               <RightFeedBox
-                src={`${process.env.REACT_APP_API_URL}/image/${category.imgUrl}`}
+                src={`${process.env.REACT_APP_API_URL}/image/${category.img}`}
               ></RightFeedBox>
             )}
           </FeedBox>
