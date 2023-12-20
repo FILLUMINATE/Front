@@ -94,6 +94,7 @@ const FeedBox = styled.div`
 `;
 
 const LeftFeedBox = styled.div`
+  min-width: 34rem;
   max-width: 40%;
   display: flex;
   flex-direction: column;

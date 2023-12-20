@@ -40,7 +40,7 @@ function Main() {
     <Layout>
       <Container>
         <VideoBox>
-          <Logo src="/images/Logo.svg" />
+          <MainLogo src="/images/Logo.svg" />
         </VideoBox>
         <FeedContainer>
           <TopFeedBox>
@@ -129,12 +129,21 @@ const Container = styled.div`
 `;
 
 const VideoBox = styled.div`
+  position: relative;
   width: 100%;
   height: 57rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background: url("/images/MainPage.svg"), rgba(255, 255, 255, 0.50);
+  background-size: cover;
+  backdrop-filter: blur(2px);
+`;
+
+const MainLogo = styled.img`
+  position: absolute;
+  width: 100px;
+  height: auto;
 `;
 
 const FeedContainer = styled.div`

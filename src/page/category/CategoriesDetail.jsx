@@ -22,7 +22,7 @@ function CategoriesDetail() {
             <LeftFeedBox>
               <Text $fontType={"H2Bold"}>{category.itemName}</Text>
               <Text $fontType={"SubHeadBold"}>{category.subTitle}</Text>
-              {category.hashTag && (
+              {category.hashtag && (
                 <Text
                   $fontType={"Body1"}
                   style={{
@@ -51,11 +51,11 @@ function CategoriesDetail() {
                   </Text>
                 </Row>
               )}
-              {category.about && (
+              {category.anotherInfo && (
                 <Row>
                   <Text $fontType={"Body1"}>경력</Text>
                   <Text $fontType={"Body1"} style={{ fontWeight: "700" }}>
-                    {category.about}
+                    {category.anotherInfo}
                   </Text>
                 </Row>
               )}
@@ -63,7 +63,8 @@ function CategoriesDetail() {
 
             {category.img && (
               <RightFeedBox
-                src={`${process.env.REACT_APP_API_URL}/image/${category.img}`}
+                // src={`${process.env.REACT_APP_API_URL}/image/${category.img}`}
+                src={category.img}
               ></RightFeedBox>
             )}
           </FeedBox>
