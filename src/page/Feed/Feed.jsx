@@ -9,8 +9,16 @@ import Button from "../../components/common/Button";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { getNotices } from "../../api/feed/api";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function Feed() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
   // const { data: feeds } = useQuery({

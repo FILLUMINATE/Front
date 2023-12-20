@@ -4,8 +4,17 @@ import { useParams } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import { categoriesData } from "../../mocks/Categories";
 import color from "../../styles/color";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
+
 
 function CategoriesDetail() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
   const { id } = useParams();
   const category = categoriesData[id];
 
@@ -112,6 +121,7 @@ const RightFeedBox = styled.img`
   width: 50rem;
   height: 19rem;
   border-radius: 1.25rem;
+  overflow: hidden;
 `;
 
 const Row = styled.div`

@@ -10,8 +10,16 @@ import { getProjects } from "../api/projects/api";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import Button from "../components/common/Button";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function Project() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const { data: projects = [] } = useQuery({
     queryKey: ["projects"],
     queryFn: () => getProjects(),

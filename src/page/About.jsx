@@ -4,6 +4,7 @@ import styled from "styled-components";
 import color from "../styles/color";
 
 import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 const { kakao } = window;
 
@@ -105,6 +106,12 @@ const KakaoMap = () => {
 };
 
 function About() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Layout>
       <All>
@@ -172,7 +179,7 @@ function About() {
         </DescriptionDiv>
         <GoalDiv>
           <Text $fontType={"H2Bold"}>EEDA의 목표</Text>
-          <GoalBoxes>
+           <GoalBoxes>
             <GoalBoxGroup style={{ marginRight: "266px" }}>
               <GoalBoxComponent
                 first="지역기반 인재 중심"
@@ -201,7 +208,7 @@ function About() {
                 image={process.env.PUBLIC_URL + `/images/Icon/GoalIconExplore.svg`}
               />
             </GoalBoxGroup>
-          </GoalBoxes>
+          </GoalBoxes> 
         </GoalDiv>
         <MapDiv>
           <MapTextbox>
@@ -212,7 +219,7 @@ function About() {
         </MapDiv>
         <ContactDiv>
           <Text $fontType={"H2Bold"}>연락처</Text>
-          <ContactContainer>
+           <ContactContainer>
             <ContactBox>
               <img src={process.env.PUBLIC_URL + `/images/Icon/PhonecallIcon.svg`} alt="img" />
               <Text $fontType={"H3Bold"}>010-3614-1385</Text>
@@ -221,7 +228,7 @@ function About() {
               <img src={process.env.PUBLIC_URL + `/images/Icon/MailIcon.svg`} alt="img" />
               <Text $fontType={"H3Bold"}>amaeahn@naver.com</Text>
             </ContactBox>
-          </ContactContainer>
+          </ContactContainer> 
         </ContactDiv>
       </All>
     </Layout>

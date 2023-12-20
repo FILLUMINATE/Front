@@ -8,8 +8,15 @@ import color from "../styles/color";
 import { useQuery } from "react-query";
 import { getNotices } from "../api/feed/api";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom"
 
 function Main() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const { data: notices } = useQuery({
     queryKey: ["notices"],
     queryFn: () => getNotices(),
@@ -40,7 +47,7 @@ function Main() {
     <Layout>
       <Container>
         <VideoBox>
-          <MainLogo src="/images/Logo.svg" />
+          <Logo src="/images/Logo.svg" />
         </VideoBox>
         <FeedContainer>
           <TopFeedBox>
@@ -127,23 +134,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
+  
 const VideoBox = styled.div`
-  position: relative;
   width: 100%;
-  height: 57rem;
+  height: 52.625rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/images/MainPage.svg"), rgba(255, 255, 255, 0.50);
-  background-size: cover;
-  backdrop-filter: blur(2px);
-`;
-
-const MainLogo = styled.img`
-  position: absolute;
-  width: 100px;
-  height: auto;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  background: url("/images/MainPage.svg");
 `;
 
 const FeedContainer = styled.div`

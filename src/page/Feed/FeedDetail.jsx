@@ -4,8 +4,17 @@ import { useParams } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import { useQuery } from "react-query";
 import { getFeed, getImgPath } from "../../api/feed/api";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
+
 
 function FeedDetail() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const { id } = useParams();
 
   const { data: feed } = useQuery({
@@ -106,4 +115,5 @@ const RightFeedBox = styled.div`
   width: 50rem;
   height: 25rem;
   border-radius: 1.25rem;
+  overflow: hidden;
 `;

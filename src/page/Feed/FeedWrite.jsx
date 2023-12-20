@@ -9,8 +9,16 @@ import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../../components/common/Button";
 import { useAddFeedMutation } from "../../api/feed/mutation";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function FeedWrite() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const mutation = useAddFeedMutation();
 
   const [formValues, setFormValues] = useState({

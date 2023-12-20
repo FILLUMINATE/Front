@@ -8,8 +8,16 @@ import { getProjectById } from "../../api/projects/api";
 import { useQuery } from "react-query";
 import { UserContext } from "../../context/UserContext";
 import { getImgPath } from "../../api/feed/api";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function ProjectDetail() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const { id } = useParams();
 
   // const project = projectData[id];
@@ -151,6 +159,7 @@ const RightFeedBox = styled.div`
   width: 50rem;
   height: 25rem;
   border-radius: 1.25rem;
+  overflow: hidden;
 `;
 
 const Row = styled.div`

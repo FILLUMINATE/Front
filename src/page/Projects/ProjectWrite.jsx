@@ -9,8 +9,17 @@ import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../../components/common/Button";
 import { useProjectMutation } from "../../api/projects/mutation";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function ProjectWrite() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  
   const mutation = useProjectMutation();
   const [selectedImage, setSelectedImage] = useState();
 

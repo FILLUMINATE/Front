@@ -5,8 +5,16 @@ import Title from "../components/img/title.png";
 import Item from "../components/common/Item";
 import { typicalCategoriesData } from "../mocks/Categories";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 function Categories() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Layout>
       <Container>
@@ -27,7 +35,7 @@ function Categories() {
           </p>
         </Process>
         <Text $fontType={"H2Bold"}>대표 작품</Text>
-        {typicalCategoriesData.map((item, index) => (
+         {typicalCategoriesData.map((item, index) => (
           <StyledLink to={`/category/${index}`}>
             <Item
               key={index}
@@ -38,7 +46,7 @@ function Categories() {
               anotherInfo={item.anotherInfo}
             />
           </StyledLink>
-        ))}
+        ))} 
       </Container>
     </Layout>
   );
