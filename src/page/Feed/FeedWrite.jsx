@@ -64,7 +64,7 @@ function FeedWrite() {
           <Input
             name="period"
             onChange={handleInputChange}
-            placeholder={"기간 (ex 2023.12.18 ~ 2023.12.23)"}
+            placeholder={"냘짜 (ex. 2023.12.18)"}
             style={{ width: "100%" }}
           />
           <TextArea
