@@ -5,7 +5,11 @@ import color from "../../../styles/color";
 function Item({ img, title, period, hashtag, anotherInfo, isExhibition }) {
   return (
     <Container>
-      <ImgBox src={img} alt={title} />
+      {img ? (
+        <ImgBox src={img} alt={title} />
+      ) : (
+        <NoneImgBox></NoneImgBox>
+      )}
       <ContentBox>
         <ItemInfoBox>
           <Text $fontType={"H3Bold"}>{title}</Text>
@@ -57,6 +61,13 @@ const ImgBox = styled.img`
   height: 13.8rem;
   border-radius: 1.25rem;
 `;
+
+const NoneImgBox = styled.div`
+  width: 23.3rem;
+  height: 13.8rem;
+  border-radius: 1.25rem;
+  background-color: ${color.gray50};
+`
 
 const ContentBox = styled.div`
   height: 13rem;

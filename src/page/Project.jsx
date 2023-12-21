@@ -46,7 +46,7 @@ function Project() {
         </div>
         <TypicalProjects>
           <Text $fontType={"H2Bold"}>대표 프로젝트</Text>
-          {typicalProjectData.map((item, index) => (
+          {projects.map((item, index) => (
             <StyledLink to={`/project/${index}`} key={index}>
               <Item
                 key={index}
