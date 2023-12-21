@@ -6,9 +6,10 @@ import Text from "../components/common/Text";
 import { Link } from "react-router-dom";
 import color from "../styles/color";
 import { useQuery } from "react-query";
-import { getNotices } from "../api/feed/api";
+import { getImgPath, getNotices } from "../api/feed/api";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+import NoticeItem from "../components/main/NoticeItem";
 
 function Main() {
   const { pathname } = useLocation();
@@ -17,10 +18,12 @@ function Main() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const { data: notices } = useQuery({
+  const { data: allNotices } = useQuery({
     queryKey: ["notices"],
     queryFn: () => getNotices(),
   });
+
+  const notices = allNotices ? allNotices.slice(0, 5) : null;
 
   const ITEMS_PER_PAGE = 1;
   const LAST_PAGE = notices ? Math.ceil(notices.length / ITEMS_PER_PAGE) : 0;
@@ -29,12 +32,6 @@ function Main() {
   const [data, setData] = useState(
     notices ? notices.slice(0, ITEMS_PER_PAGE) : []
   );
-
-  useEffect(() => {
-    if (notices) {
-      setData(notices.slice(0, ITEMS_PER_PAGE));
-    }
-  }, [notices]);
 
   const handlePage = (event, value) => {
     setPage(value);
@@ -74,44 +71,7 @@ function Main() {
             </StyledLink>
           </TopFeedBox>
           {data.map((notice, idx) => (
-            <div key={idx} style={{ width: "100%" }}>
-              <FeedBox>
-                <LeftFeedBox>
-                  <TopFeedBox
-                    style={{ padding: "0", margin: "0", width: "100%" }}
-                  >
-                    <Text $fontType={"SubHeadBold"}>{notice?.title}</Text>
-                    <Text
-                      $fontType={"SubHeadBold"}
-                      style={{ fontSize: "1rem" }}
-                    >
-                      {notice?.period}
-                    </Text>
-                  </TopFeedBox>
-                  <div
-                    style={{
-                      border: `1px solid ${color.gray200}`,
-                      width: "100%",
-                    }}
-                  ></div>
-                  <Text
-                    $fontType={"Body1"}
-                    style={{ fontStyle: "nomal", wordWrap: "break-word" }}
-                  ></Text>
-                </LeftFeedBox>
-                <RightFeedBox>
-                  <Logo
-                    src="/images/Logo.svg"
-                    alt="피드"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </RightFeedBox>
-              </FeedBox>
-            </div>
+            <NoticeItem key={idx} notice={notice} />
           ))}
           <PaginationContainer>
             <Pagination
@@ -134,7 +94,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-  
+
 const VideoBox = styled.div`
   width: 100%;
   height: 52.625rem;
@@ -153,24 +113,6 @@ const FeedContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-`;
-
-const FeedBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 1.25rem;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  padding: 4rem;
-  gap: 2rem;
-`;
-
-const LeftFeedBox = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 `;
 
 const TopFeedBox = styled.div`
@@ -196,11 +138,4 @@ const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: 3rem 0 0;
-`;
-
-const RightFeedBox = styled.div`
-  width: 50rem;
-  height: 19rem;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 1.25rem;
 `;

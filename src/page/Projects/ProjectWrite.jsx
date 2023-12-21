@@ -9,17 +9,17 @@ import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../../components/common/Button";
 import { useProjectMutation } from "../../api/projects/mutation";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 
 function ProjectWrite() {
   const { pathname } = useLocation();
 
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  
   const mutation = useProjectMutation();
   const [selectedImage, setSelectedImage] = useState();
 
@@ -57,6 +57,7 @@ function ProjectWrite() {
       formData.append("address", formValues.address);
 
       mutation.mutate(formData);
+      navigate("/");
     } catch (error) {
       alert("프로젝트를 추가하지 못 했습니다.");
       console.log(error);
