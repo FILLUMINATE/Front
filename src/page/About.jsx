@@ -259,7 +259,7 @@ const All = styled.div`
 //Contact
 const ContactBox = styled.div`
   display: flex;
-  width: 100%;
+  width: 70rem;
   height: 166px;
   justify-content: center;
   align-items: center;
