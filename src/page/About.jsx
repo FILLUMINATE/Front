@@ -236,13 +236,6 @@ function About() {
           <ContactContainer>
             <ContactBox>
               <img
-                src={process.env.PUBLIC_URL + `/images/Icon/PhonecallIcon.svg`}
-                alt="img"
-              />
-              <Text $fontType={"H3Bold"}>010-3614-1385</Text>
-            </ContactBox>
-            <ContactBox>
-              <img
                 src={process.env.PUBLIC_URL + `/images/Icon/MailIcon.svg`}
                 alt="img"
               />
@@ -266,7 +259,7 @@ const All = styled.div`
 //Contact
 const ContactBox = styled.div`
   display: flex;
-  width: 550px;
+  width: 100%;
   height: 166px;
   justify-content: center;
   align-items: center;

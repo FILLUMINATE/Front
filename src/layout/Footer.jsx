@@ -9,8 +9,6 @@ function Footer() {
       <FooterInfoBox>
         <H1Bold>EEDA</H1Bold>
         <SubHeading>
-          TEL. 010-3614-1385
-          <br />
           E-MAIL. amaeahn@naver.com
           <br />
           ADDRESS. 부산 수영구 광남로 146, 광안갤러리 2F
